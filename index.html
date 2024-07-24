@@ -277,24 +277,25 @@
                     transform: scale(1.1);
                 }
                 .parallax {
-        background-image: url('essa.jpg'); /* Coloque aqui a URL da sua imagem */
-        height: 300px; /* Ajuste a altura conforme necessário */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain; /* Altere para 'contain' para exibir a imagem inteira */
-        margin: 20px 0; /* Espaçamento entre os botões */
+    background-image: url('essa.jpg'); /* Coloque aqui a URL da sua imagem */
+    height: 300px; /* Ajuste a altura conforme necessário */
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Altere para 'contain' para exibir a imagem inteira */
+    margin: 20px 0; /* Espaçamento entre os botões */
+    background-attachment: scroll; /* Adicione esta linha */
     }
 
     @media (max-width: 768px) {
         .parallax {
-            height: 200px; /* Ajuste a altura para telas menores, se necessário */
+            height: 300px; /* Ajuste a altura para telas menores, se necessário */
         }
     }
 
     @media (max-width: 480px) {
         .parallax {
-            height: 150px; /* Ajuste a altura para telas menores, se necessário */
+            height: 300px; /* Ajuste a altura para telas menores, se necessário */
         }
     }
         
