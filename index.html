@@ -395,7 +395,40 @@
         function openWhats() {
           window.location.href = 'https://wa.me/5528999965464';
         }
-        
+        PackageManager pm = getPackageManager();
+        boolean isInstalled = isPackageInstalled("com.whatsapp", pm);
+
+        public boolean isPackageInstalled(String packageName, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+          }
+        if (isInstalled) {
+    Intent sendIntent = new Intent();
+    sendIntent.setAction(Intent.ACTION_VIEW);
+    String url = "https://api.whatsapp.com/send?phone=5528999965464&text=Digite+seu+texto+aqui";
+    sendIntent.setData(Uri.parse(url));
+    startActivity(sendIntent);
+} else {
+    // O WhatsApp não está instalado, trate este caso
+    Toast.makeText(this, "O WhatsApp não está instalado", Toast.LENGTH_SHORT).show();
+        }
+        webView.setWebViewClient(new WebViewClient() {
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (url.startsWith("whatsapp://")) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_VIEW);
+            sendIntent.setData(Uri.parse(url));
+            startActivity(sendIntent);
+            return true;
+        }
+        return false;
+    }
+});
     </script>
 </body>
 </html>
