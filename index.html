@@ -320,7 +320,7 @@
             <div class="info">
                 <i class="fas fa-phone"></i> (28) 999965464
             </div>
-            <a href="https://wa.me/5528999965464" class="whatsapp-button" target="_blank">
+            <a href="javascript:openWhatsApp()" class="whatsapp-button" target="_blank">
                 <img src="whatsapp-icone-1.png" alt="WhatsApp">
             </a>
             <button onclick="openLink()">Agendar um horário</button>
@@ -381,6 +381,11 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        function openWhatsApp() {
+            Kodular.setWebViewString("whatsapp://send?phone=5528999965464&text=Oi, sou cliente da barbearia, tenho uma dúvida.");
+        }
+    </script>
     <script>
         function openLink() {
             window.open('https://cal.com/ricardo-moreira-ui2vbu/30min?layout=mobile&month=2024-07&date=2024-07-24', '_blank');
