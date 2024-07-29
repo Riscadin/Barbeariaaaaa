@@ -320,7 +320,7 @@
             <div class="info">
                 <i class="fas fa-phone"></i> (28) 999965464
             </div>
-            <a onclick="openWhatsApp()" class="whatsapp-button" target="_blank">
+            <a onclick="verificar()" class="whatsapp-button" target="_blank">
                 <img src="whatsapp-icone-1.png" alt="WhatsApp">
             </a>
             <button onclick="openLink()">Agendar um horário</button>
@@ -384,6 +384,22 @@
     <script type="text/javascript">
         function openWhatsApp() {
             Kodular.setWebViewString("whatsapp://send?phone=5528999965464&text=Oi, sou cliente da barbearia, tenho uma dúvida.");
+        }
+        function isInWebView() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // Detecta se está no WebView
+            return /WebView/.test(userAgent) || /wv/.test(userAgent);
+        }
+
+        function verificar() {
+            
+            if (isInWebView()) {
+                // Estamos no WebView, use o método específico do aplicativo
+                openWhatsApp();
+            } else {
+                // Estamos no navegador, redireciona diretamente
+                openWhats();
+            }
         }
     </script>
     <script>
